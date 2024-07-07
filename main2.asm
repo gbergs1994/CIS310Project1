@@ -15,16 +15,17 @@ target byte SIZEOF sourcestr DUP('#')
 
 .code
 main proc
-	mov esi,0
-	mov edi,LENGTHOF sourcestr - 1
-	mov ecx,SIZEOF sourcestr
+	mov esi, 0
+	mov edi, LENGTHOF sourcestr - 1
+	mov ecx, SIZEOF sourcestr
 
 L1:
 	mov al, sourcestr[esi]
-	mov target[edi],al
-	inc esi
+	mov target[edi], al
 	dec edi
+	inc esi
 	loop L1
+
 	mov edx, OFFSET sourcestr
 	call WriteString
 
